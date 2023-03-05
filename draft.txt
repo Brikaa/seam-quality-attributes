@@ -1,0 +1,44 @@
+- https://en.wikipedia.org/wiki/ISO/IEC_9126
+- https://www.iso.org/standard/35733.html
+
+Performance efficiency
+    - Time behavior
+        - Response time
+            - The time taken till the first output is produced
+        - Processing time
+            - https://www.sciencedirect.com/topics/engineering/processing-time
+            - The time taken for a procedure from start to finish
+        - Throughput
+            - https://testguild.com/performance-testing-what-is-throughput/
+            - The number of transactions the system can handle per unit time
+    - Resource utilization
+        - The amount of resources used by the system when performing its functions
+            - Used memory
+            - Used network bandwidth
+            - Percentage of CPU utilization
+    - All of the previous are divided by their respective numbers in the requirements
+
+Reliability
+    - Availability
+        - Degree to which a system or part of a system is available for use when required
+        - Calculating by dividing the uptime over the total time the system was expected to be available (uptime + downtime)
+        - https://www.fiixsoftware.com/glossary/system-availability/
+    - Fault tolerance
+        - Degree to which a system can operate under hardware or software failures
+        - The number of subsystem failures that can be tolerated / the number of available subsystems
+        - http://web.eecs.utk.edu/~leparker/publications/PERMIS_06.pdf
+    - Recoverability
+        - The degree to which a system can recover data and re-establish its state after a failure
+
+
+Security
+- Confidentiality
+- Integrity
+- Non-repudiation
+- Accountability
+- Authenticity
+
+Usability
+- Appro
+
+Maintainability
