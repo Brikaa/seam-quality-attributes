@@ -29,6 +29,8 @@ Reliability
         - http://web.eecs.utk.edu/~leparker/publications/PERMIS_06.pdf
     - Recoverability
         - The degree to which a system can recover data and re-establish its state after a failure
+        - Recovery time = avg(incident resolved timestamp - incident reported timestamp)
+        - https://blog.codacy.com/how-to-measure-time-to-recover/
 
 
 Security
