@@ -19,6 +19,7 @@ Performance efficiency
     - All of the previous are divided by their respective numbers in the requirements
 
 Reliability
+    - The degree to which a system performs specified functions under specified conditions for a specified period of time
     - Availability
         - Degree to which a system or part of a system is available for use when required
         - Calculating by dividing the uptime over the total time the system was expected to be available (uptime + downtime)
@@ -32,15 +33,57 @@ Reliability
         - Recovery time = avg(incident resolved timestamp - incident reported timestamp)
         - https://blog.codacy.com/how-to-measure-time-to-recover/
 
-
-Security
-- Confidentiality
-- Integrity
-- Non-repudiation
-- Accountability
-- Authenticity
-
 Usability
-- Appro
+    - The degree to which a specific system can be by specified users used with
+        effectiveness, efficiency and satisfaction to achieve a certain goal in a specific context
+    - Learnability
+        - The degree to which the user finds it easy to achieve a specific task on the system for the first time and
+            how many repetitions it takes the user to become efficient at that task.
+        - https://www.nngroup.com/articles/measure-learnability
+        - First time learnability: the amount of time it takes the user to do a certain task on the system for the first time
+        - Learning curve
+            - Number of repetitions on x-axis
+            - Time on y-axis
+            - A curve that falls faster indicates faster learnability
+        - Efficiency: after reaching a plateau on the learning curve, how much time does it take the user to perform the
+            task (how long does it take an expert at the system to perform the task)
+    - Accessibility
+        - degree to which a system can be used by people with the widest range of characteristics
+        - Multiple standards exist
+        - Web Content Accessibility Guidelines is an international set of accessibility standards
+        - https://www.w3.org/WAI/fundamentals/accessibility-principles/
+        - Perceivability: the degree to which all users can perceive all essential information on the screen
+            - Text alternatives for non-text content (as images)
+            - Captions for multimedia content
+            - Color is not the only way to convey meaning
+        - Operability: the degree to which it is possible for the user can operate the system's interface
+            - Functionality is available from a keyboard?
+            - Functionality is available from a touchscreen?
+            - Functionality is available form voice assistants?
+        - Understandability: the degree to which the users are able to understand the information on the system and the
+            operation of the user interface
+        - Robustness: the degree to which the system is accessible on different agents and devices
+            - Newest browsers?
+            - Old browsers?
+            - Newest devices?
+            - Old devices?
+            - Different device orientations?
 
 Maintainability
+    - The degree of effectiveness and efficiency with which a system can be modified by intended maintainers
+    - Modularity
+        - the degree to which a system is composed of independent components such that a change in one component
+            has minimal change on another
+        - valid_dependencies / total_dependencies
+        - https://medium.com/ro-engineering-blog/measuring-modularity-45abe4297896
+    - Testability
+        - The degree of effectiveness and efficiency with which test criteria can be formulated for a system or component
+            and tests can be performed to determine whether these criteria have been met
+        - https://en.wikipedia.org/wiki/Software_testability
+
+Security
+    - Confidentiality
+    - Integrity
+    - Non-repudiation
+    - Accountability
+    - Authenticity
