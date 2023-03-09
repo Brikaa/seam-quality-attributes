@@ -77,7 +77,7 @@ desirable.
 \subsection{Fault tolerance}
 It is the degree to which a system can recover under hardware or software failures\iso.
 One way to measure it is determining how many subsystems of the available subsystems
-can tolerate failures\footnote{http://web.eecs.utk.edu/\~leparker/publications/PERMIS\_06.pdf}.
+can tolerate failures\footnote{\url{http://web.eecs.utk.edu/~leparker/publications/PERMIS_06.pdf}}.
 \[ft = \frac{n_f}{n}\]
 Where $ft$ is the fault tolerance, $n_f$ is the number of subsystems that can tolerate failures,
 and $n$ is the total number of subsystems. A number that is closer to one is more desirable.
@@ -148,11 +148,74 @@ Where:
 
 \subsubsection{Operable user interface and navigation}
 It is the degree to which the user is able to operate the system's interface.
-The same formula discussed in \ref{perceivability} can be used where:
+The same formula discussed in \ref{perceivability} can be used to measure it where:
 \begin{itemize}
     \item $n$ is the number of tasks that can be done using only (non-exhaustive):
           a keyboard, a mouse, a touchscreen, or a voice assistant
     \item $t$ is the total number of tasks that can be done on the system
 \end{itemize}
+
+\subsubsection{Robust content and reliable interpretation}
+It is the degree to which the system is accessible on different agents and devices.
+The same formula discussed in \ref{perceivability} can be used to measure it where:
+\begin{itemize}
+    \item $n$ is the number of (non-exhaustive) browsers or devices that the system is accessible from
+    \item $t$ is (non-exhaustive list relative to $n$) the number of browsers and devices that are currently in use or
+          will be used in the future.
+\end{itemize}
+
+\section{Maintainability}
+Maintainability is the degree of effectiveness and efficiency with which a system can be modified by intended
+maintainers\iso. I discuss two subcategories that can be used to measure the maintainability of a system:
+
+\subsection{Modularity}
+It is the degree to which a system is composed of independent components such that a change in one component
+has minimal change on another\iso.
+That is, modules or components should communicate with each other via an abstract interface or message passing
+(valid dependency) rather than depending on each other's logic (invalid dependency).
+One suggested way\footnote{https://medium.com/ro-engineering-blog/measuring-modularity-45abe4297896} to measure it
+is using the following formula:
+\[modularity = \frac{v}{t}\]
+Where $v$ is the number of valid dependencies (discussed above) and $t$ is the total number of dependencies.
+
+\subsection{Testability}
+It is the degree of effectiveness and efficiency with which test criteria can be formulated for a system or component
+and tests can be performed to determine whether these criteria have been met\iso.
+It can be measured using the following formula:
+\[testability = \frac{testable}{total}\]
+Where $testable$ is the total number of testable components and $total$ is the total number of components in a system.
+A component is said to be testable if there exists a predicate function $V$ where $V(S, I)$ is true
+when a subsystem or component $S$ produces a valid output when given a valid input
+$I$\footnote{https://en.wikipedia.org/wiki/Software\_testability}.
+
+\section{Security}
+Security is the degree to which the system protects data and information
+so that users or other systems have the degree of data access that is appropriate to their roles\iso.
+The following are non-exhaustive subcategories that can be used to measure the security of a system.
+
+\subsection{Confidentiality}
+It is the degree to which the system ensures that data is accessible to only those who are authorized to access it\iso.
+One tool to measure the confidentiality is penetration testing;
+that is simulating an attack on the system that aims to access data without proper authorization.
+\[confidentiality = \frac{n}{t}\]
+Theoretically, $n$ would be the number of data items in a system that have proper access rules and protections
+and $t$ would be the total number of data items in a system.
+However, an organization might fail to detect data items that do not have proper access rules and protections;
+hence, a more practical interpretation of this formula would let
+$n$ be the number of unsuccessful penetration attacks on a system in a penetration test
+and $t$ be the total number of attacks.
+
+\subsection{Non-repudiation}
+It is the degree to which each event on a system has a proof of existence such that it can not be repudiated later\iso.
+\[nr = \frac{n}{t}\]
+Where $nr$ is the non-repudiation score, $n$ is the number of events that have a proof of existence in the system
+and $t$ is the total number of events in a system.
+
+\subsection{Accountability}
+It is the degree to which all actions done on a system by a specific entity can be traced back to that entity\iso.
+The usual number/total formula can be used to measure the accountability score of the system:
+\[accountability = \frac{n}{t}\]
+Where $n$ is the number of actions in a system that can be traced back to an entity,
+and $t$ is the total number of actions that can be done in a system.
 
 \end{document}

@@ -88,11 +88,7 @@ Security
     - Confidentiality
         - The degree to which the system ensures that data is accessible to only those who are authorized
             to access it
-    - Integrity
-        - The degree to which the system prevents unauthorized access or modification to data or code
     - Non-repudiation
         - The existence of a proof of an event so that it can not be repudiated later.
     - Accountability
         - The degree to which all actions of an entity can be traced back to that entity
-    - Authenticity
-        - The degree to which the identity of a subject can be proven to be the one claimed
