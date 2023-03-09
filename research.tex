@@ -1,5 +1,6 @@
 \documentclass[11pt,a4paper]{article}
 \usepackage{hyperref}
+\def \iso{\footnote{ISO/IEC 25010:2011}}
 
 \begin{document}
 
@@ -17,21 +18,141 @@ ISO/IEC 25010:2011\footnote{\label{iso}https://www.iso.org/standard/35733.html} 
 \section{Performance efficiency}
 The performance of a system is how the system performs relative to the amount of resources it is given
 under stated conditions. It can be measured using the time behavior of the system, its resource utilization and its
-capacity\footnote{See footnote \ref{iso}}. I discuss the first two.
+capacity\iso. I discuss the first two.
 
-\subsection{Resource utilization}
+\subsection{Time behavior}
+The following measurements can be divided by their respective numbers in the system requirements. A result that is greater
+than or equal to one shows that the system meets the requirements.
 
 \subsubsection{Response time}
-Having requested a task from a system, the response time is determined by measuring
-the amount of time it takes to produce the first output of this task.
+Having requested a task from a system, the response time is the amount of time it takes
+to produce the first output of this task.
+\[rt = ts_o - ts_r\]
+Where $rt$ is the response time, $ts_o$ is the timestamp of the first output, and $ts_r$ is the timestamp of the request.
 
 \subsubsection{Processing time}
-Having requested a task from a system, the processing time is determined by measuring
-the amount of time from start to finish of that
+Having requested a task from a system, the processing time the amount of time from start to finish of that
 task\footnote{https://www.sciencedirect.com/topics/engineering/processing-time}.
+\[pt = ts_f - ts_r\]
+Where $pt$ is the processing time, $ts_f$ is the timestamp at which the task finished,
+and $ts_r$ is the timestamp of the request.
 
 \subsubsection{Throughput}
 Throughput is the number of transaction/tasks that a system can handle per unit
 time\footnote{https://testguild.com/performance-testing-what-is-throughput/}
+\[throughput = \frac{n}{t}\]
+Where $n$ is the number of transactions done over a specified amount of time and $t$ is that amount of time.
+
+\subsection{Resource utilization}
+The following measurements can be divided by their respective numbers in the resources allocated to the system. A result
+that is close to one is desirable, a result that is greater than one shows that the system overuses the resource and A
+result that is less than one shows that the system underuses the resource.
+
+\subsubsection{Memory utilization}
+Can be determined by measuring the amount of RAM used by the software system. The amount of memory used by the operating
+system on which the software system runs should be considered if the software system comes with that operating system
+(as in the case of containers and virtual machines)
+
+\subsubsection{Network bandwidth}
+Can be determined by measuring the maximum amount of data that can be transferred over a network over a certain
+period of time.
+\[bandwidth = max(\frac{data}{time})\]
+
+\subsubsection{CPU utilization}
+Can be determined by using a tool that measures the load average of the CPU over a certain amount of time. A change in the
+load average that is caused by operating system processes should be considered if the software system comes
+with that operating system.
+
+\section{Reliability}
+Reliability is the degree to which a system performs specified functions under specified conditions for a specified period of
+time\iso. I discuss some of the subcategories that can be used to measure reliability:
+
+\subsection{Availability}
+It is the degree to which a system or a part of thereof is available for use when required\iso. It can be calculated by
+dividing the uptime of the system over the total amount of time the system was expected to be
+available\footnote{https://www.fiixsoftware.com/glossary/system-availability/}. A number that is closer to one is more
+desirable.
+\[availability = \frac{uptime}{uptime + downtime}\]
+
+\subsection{Fault tolerance}
+It is the degree to which a system can recover under hardware or software failures\iso.
+One way to measure it is determining how many subsystems of the available subsystems
+can tolerate failures\footnote{http://web.eecs.utk.edu/\~leparker/publications/PERMIS\_06.pdf}.
+\[ft = \frac{n_f}{n}\]
+Where $ft$ is the fault tolerance, $n_f$ is the number of subsystems that can tolerate failures,
+and $n$ is the total number of subsystems. A number that is closer to one is more desirable.
+
+\subsection{Recoverability}
+It is the degree to which a system can recover data or re-establish its state after failure\iso.
+One way of determining it is measuring the recovery time;
+that is, the amount of time the system takes to recover after a certain
+incident\footnote{https://blog.codacy.com/how-to-measure-time-to-recover/}.
+\[rt = avg(ts_s - ts_r)\]
+Where $rt$ is the recovery time, $ts_s$ is the timestamp at which an incident was resolved,
+and $ts_r$ is the timestamp at which that incident was reported.
+
+\section{Usability}
+Usability is the degree to which a specific system can be used by specified users used with
+effectiveness, efficiency and satisfaction to achieve a certain goal in a specific context\iso.
+I discuss some of the subcategories that can be used to measure usability:
+
+\subsection{Learnability}
+It is the degree to which the user finds it easy to achieve a specific task on the system for the first time and
+how many repetitions it takes the user to become efficient at that
+task\footnote{\label{measure_learnability}https://www.nngroup.com/articles/measure-learnability}.
+The following are three ways to measure
+learnability\footnote{See footnote \ref{measure_learnability}}:
+
+\subsubsection{\label{first_time_learnability}First-time learnability}
+Can be determined by measuring the amount of time it takes a user to do a certain task on the system for the first time.
+The time taken by a user to accomplish a task is measured by:
+\[t = ts_d - ts_s\]
+Where $ts_d$ is the timestamp at which the user accomplished the task,
+and $ts_s$ is the timestamp at which the user started using the system to accomplish the task.
+
+\subsubsection{\label{learning_curve}Learning curve}
+Can be plotted as a graph with the amount of time it takes a user to accomplish a
+task (\ref{first_time_learnability}) on the x-axis and the number of repetitions of that task on the y-axis.
+A fast-falling learning curve indicates that users are able to quickly learn how to accomplish a task on the system.
+
+\subsubsection{Efficiency}
+When the learning curve (\ref{learning_curve}) stabilizes,
+it is said that the user has reached a plateau in the efficiency of doing a certain task;
+that is, the user can now do the task in the least amount of time possible.
+Therefore, the efficiency of doing a task is the time the user takes to accomplish a task (\ref{first_time_learnability})
+after reaching a plateau.
+
+\subsection{Accessibility}
+Accessibility is the degree to which the system can be used by people with the widest range of characteristics\iso.
+The different characteristics include: color blindness, visual impairments and auditory impairments.
+There are multiple standards to measure the accessibility of a system.
+The Web Content Accessibility Guidelines\footnote{https://www.w3.org/WAI/fundamentals/accessibility-principles/}
+is an international set of accessibility standards that defines some accessibility requirements.
+These include but are not limited to the following:
+
+\subsubsection{\label{perceivability}Perceivable information and user interface}
+It is the degree to which all users can perceive all essential information on the screen.
+It can be measured using the following formula:
+\[score = \frac{n}{t}\]
+Where:
+\begin{itemize}
+    \item $score$ is the score of the system in a certain perceivability subcategory (determined by $n$ and $t$)
+    \item $n$ is either (non-exhaustive list): the number of non-text elements that have text alternatives,
+          the number of multimedia elements that have captions,
+          or the number of elements that have an additional way other than colors to convey meaning
+    \item $t$ is either (non-exhaustive list respective to $n$):
+          the total number of non-text elements,
+          the total number of multi-media elements,
+          or the total number of elements that use color to convey meaning
+\end{itemize}
+
+\subsubsection{Operable user interface and navigation}
+It is the degree to which the user is able to operate the system's interface.
+The same formula discussed in \ref{perceivability} can be used where:
+\begin{itemize}
+    \item $n$ is the number of tasks that can be done using only (non-exhaustive):
+          a keyboard, a mouse, a touchscreen, or a voice assistant
+    \item $t$ is the total number of tasks that can be done on the system
+\end{itemize}
 
 \end{document}

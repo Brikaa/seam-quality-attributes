@@ -56,7 +56,7 @@ Usability
             - Text alternatives for non-text content (as images)
             - Captions for multimedia content
             - Color is not the only way to convey meaning
-        - Operability: the degree to which it is possible for the user can operate the system's interface
+        - Operability: the degree to which it is possible for the user to operate the system's interface
             - Functionality is available from a keyboard?
             - Functionality is available from a touchscreen?
             - Functionality is available form voice assistants?
