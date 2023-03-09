@@ -21,8 +21,9 @@ under stated conditions. It can be measured using the time behavior of the syste
 capacity\iso. I discuss the first two.
 
 \subsection{Time behavior}
-The following measurements can be divided by their respective numbers in the system requirements. A result that is greater
-than or equal to one shows that the system meets the requirements.
+Time behavior measurements are concerned with how a system behaves relative to time.
+The following measurements can be divided by their respective numbers in the system requirements.
+A result that is greater than or equal to one shows that the system meets the requirements.
 
 \subsubsection{Response time}
 Having requested a task from a system, the response time is the amount of time it takes
@@ -31,7 +32,7 @@ to produce the first output of this task.
 Where $rt$ is the response time, $ts_o$ is the timestamp of the first output, and $ts_r$ is the timestamp of the request.
 
 \subsubsection{Processing time}
-Having requested a task from a system, the processing time the amount of time from start to finish of that
+Having requested a task from a system, the processing time is the amount of time from start to finish of that
 task\footnote{https://www.sciencedirect.com/topics/engineering/processing-time}.
 \[pt = ts_f - ts_r\]
 Where $pt$ is the processing time, $ts_f$ is the timestamp at which the task finished,
@@ -39,14 +40,16 @@ and $ts_r$ is the timestamp of the request.
 
 \subsubsection{Throughput}
 Throughput is the number of transaction/tasks that a system can handle per unit
-time\footnote{https://testguild.com/performance-testing-what-is-throughput/}
+time\footnote{https://testguild.com/performance-testing-what-is-throughput/}.
 \[throughput = \frac{n}{t}\]
 Where $n$ is the number of transactions done over a specified amount of time and $t$ is that amount of time.
 
 \subsection{Resource utilization}
-The following measurements can be divided by their respective numbers in the resources allocated to the system. A result
-that is close to one is desirable, a result that is greater than one shows that the system overuses the resource and A
-result that is less than one shows that the system underuses the resource.
+Resource utilization measurements are concerned with how the system behaves relative to allocated resources.
+The following measurements can be divided by their respective numbers in the resources allocated to the system.
+A result that is close to one is desirable,
+a result that is greater than one shows that the system overuses the resource
+and a result that is less than one shows that the system underuses the resource.
 
 \subsubsection{Memory utilization}
 Can be determined by measuring the amount of RAM used by the software system. The amount of memory used by the operating
@@ -70,8 +73,8 @@ time\iso. I discuss some of the subcategories that can be used to measure reliab
 \subsection{Availability}
 It is the degree to which a system or a part of thereof is available for use when required\iso. It can be calculated by
 dividing the uptime of the system over the total amount of time the system was expected to be
-available\footnote{https://www.fiixsoftware.com/glossary/system-availability/}. A number that is closer to one is more
-desirable.
+available\footnote{https://www.fiixsoftware.com/glossary/system-availability/}.
+A number that is close to one is desirable.
 \[availability = \frac{uptime}{uptime + downtime}\]
 
 \subsection{Fault tolerance}
@@ -80,7 +83,7 @@ One way to measure it is determining how many subsystems of the available subsys
 can tolerate failures\footnote{\url{http://web.eecs.utk.edu/~leparker/publications/PERMIS_06.pdf}}.
 \[ft = \frac{n_f}{n}\]
 Where $ft$ is the fault tolerance, $n_f$ is the number of subsystems that can tolerate failures,
-and $n$ is the total number of subsystems. A number that is closer to one is more desirable.
+and $n$ is the total number of subsystems. A number that is close to one is desirable.
 
 \subsection{Recoverability}
 It is the degree to which a system can recover data or re-establish its state after failure\iso.
@@ -92,7 +95,7 @@ Where $rt$ is the recovery time, $ts_s$ is the timestamp at which an incident wa
 and $ts_r$ is the timestamp at which that incident was reported.
 
 \section{Usability}
-Usability is the degree to which a specific system can be used by specified users used with
+Usability is the degree to which a specific system can be used by specified users with
 effectiveness, efficiency and satisfaction to achieve a certain goal in a specific context\iso.
 I discuss some of the subcategories that can be used to measure usability:
 
@@ -170,7 +173,7 @@ maintainers\iso. I discuss two subcategories that can be used to measure the mai
 
 \subsection{Modularity}
 It is the degree to which a system is composed of independent components such that a change in one component
-has minimal change on another\iso.
+has minimal impact on another\iso.
 That is, modules or components should communicate with each other via an abstract interface or message passing
 (valid dependency) rather than depending on each other's logic (invalid dependency).
 One suggested way\footnote{https://medium.com/ro-engineering-blog/measuring-modularity-45abe4297896} to measure it
@@ -191,7 +194,7 @@ $I$\footnote{https://en.wikipedia.org/wiki/Software\_testability}.
 \section{Security}
 Security is the degree to which the system protects data and information
 so that users or other systems have the degree of data access that is appropriate to their roles\iso.
-The following are non-exhaustive subcategories that can be used to measure the security of a system.
+The following are non-exhaustive subcategories that can be used to measure the security of a system:
 
 \subsection{Confidentiality}
 It is the degree to which the system ensures that data is accessible to only those who are authorized to access it\iso.
@@ -213,7 +216,6 @@ and $t$ is the total number of events in a system.
 
 \subsection{Accountability}
 It is the degree to which all actions done on a system by a specific entity can be traced back to that entity\iso.
-The usual number/total formula can be used to measure the accountability score of the system:
 \[accountability = \frac{n}{t}\]
 Where $n$ is the number of actions in a system that can be traced back to an entity,
 and $t$ is the total number of actions that can be done in a system.
